@@ -1,0 +1,11 @@
+.wrapper {
+  width: 500px;
+  margin: 50px auto;
+  display: grid;
+  justify-content: center;
+}
+
+.wrapper img {
+  border-radius: 50%;
+  justify-self: center;
+}

@@ -1,1 +1,1 @@
-export { useExample } from "../redux/ducks/example"
+export { useRandom } from "../redux/ducks/Invite"
