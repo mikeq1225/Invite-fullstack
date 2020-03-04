@@ -1,0 +1,28 @@
+.notGoingwrapper {
+  width: 1000px;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+}
+
+.userContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  grid-gap: 10px 10px;
+}
+
+.person img {
+  border-radius: 50%;
+  justify-self: center;
+}
+
+.homeButtonDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.homeButtonDiv a button {
+  font-size: 20px;
+}
