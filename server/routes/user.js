@@ -34,7 +34,7 @@ router.post("/going", (req, res, next) => {
 })
 
 router.get("/going", (req, res, next) => {
-  res.json({ going })
+  res.json(going)
 })
 
 router.post("/notgoing", (req, res, next) => {
@@ -46,7 +46,7 @@ router.post("/notgoing", (req, res, next) => {
 })
 
 router.get("/notgoing", (req, res, next) => {
-  res.json({ notGoing })
+  res.json(notGoing)
 })
 
 // router.post("/", (req, res, next) => {})
