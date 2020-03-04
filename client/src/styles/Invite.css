@@ -5,6 +5,36 @@
   justify-content: center;
 }
 
+.person {
+  width: 350px;
+  display: grid;
+  justify-content: center;
+  background-color: lightgrey;
+  padding: 30px;
+}
+
+.person p {
+  margin: 4px;
+}
+
+.yesNo {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0px;
+}
+.yesNo button {
+  font-size: 20px;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: space-around;
+}
+
+.buttonDiv a button {
+  font-size: 30px;
+}
+
 .wrapper img {
   border-radius: 50%;
   justify-self: center;

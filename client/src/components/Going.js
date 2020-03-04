@@ -1,12 +1,24 @@
 import React from "react"
-import axios from "axios"
+// import axios from "axios"
+import { useRandom } from "../hooks"
+import { Link } from "react-router-dom"
 
 export default props => {
-  // const { user, random } = useRandom()
+  const { person } = useRandom()
 
   return (
     <div>
-      <h1>Going</h1>
+      {/* {user.map(person => ( */}
+      <div className="person">
+        <img src={person.img} alt="headshot" />
+        <p>Name: {person.name}</p>
+        <p>Phone: {person.phone}</p>
+        <p>Email: {person.email}</p>
+        <Link to={"/"}>
+          <button>Home</button>
+        </Link>
+      </div>
+      {/* ))} */}
     </div>
   )
 }

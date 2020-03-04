@@ -3,25 +3,20 @@ import { useSelector, useDispatch } from "react-redux"
 import axios from "axios"
 
 const GET_RANDOM = "Invite/GET_RANDOM"
+const ADD_GOING = "Invite/ADD_GOING"
 
 const initialState = {
-  user: {
-    name: {
-      first: "",
-      last: ""
-    },
-    phone: "",
-    email: "",
-    picture: {
-      medium: ""
-    }
-  }
+  user: {},
+  going: [],
+  notGoing: []
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case GET_RANDOM:
       return { ...state, user: action.payload }
+    case ADD_GOING:
+      return { ...state, going: action.payload }
     default:
       return state
   }
@@ -29,11 +24,41 @@ export default (state = initialState, action) => {
 
 function getRandom() {
   return dispatch => {
-    axios.get("https://randomuser.me/api/").then(resp => {
-      const data = resp.data.results[0]
+    axios.get("/api").then(resp => {
       dispatch({
         type: GET_RANDOM,
-        payload: data
+        payload: resp.data
+      })
+    })
+  }
+}
+
+// for adding users to going array on backend
+function addGoing(user) {
+  return dispatch => {
+    axios.post("/api/going", { user }).then(resp => {
+      dispatch(getRandom())
+    })
+  }
+}
+
+// for adding users to notGoing array on backend
+function notGoing(user) {
+  return dispatch => {
+    axios.post("/api/notgoing", { user }).then(resp => {
+      dispatch(getRandom())
+    })
+  }
+}
+
+// for getting all users in going array?????
+function getGoing() {
+  return dispatch => {
+    axios.get("/api/going").then(resp => {
+      console.log(resp.data)
+      dispatch({
+        type: ADD_GOING,
+        payload: resp.data
       })
     })
   }
@@ -42,10 +67,15 @@ function getRandom() {
 export function useRandom() {
   const dispatch = useDispatch()
   const user = useSelector(appState => appState.randomState.user)
-  const random = () => dispatch(getRandom())
+  const person = useSelector(appState => appState.randomState.going)
+  // const random = () => dispatch(getRandom())
+  const add = user => dispatch(addGoing(user))
+  const noGo = user => dispatch(notGoing(user))
+  const allGoing = () => dispatch(getGoing())
 
   useEffect(() => {
     dispatch(getRandom())
+    dispatch(getGoing())
   }, [dispatch])
-  return { user, random }
+  return { user, add, noGo, person, allGoing }
 }
