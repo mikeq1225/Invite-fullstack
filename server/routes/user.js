@@ -25,35 +25,30 @@ router.get("/", (req, res, next) => {
   })
 })
 
+//for adding user to the going array
 router.post("/going", (req, res, next) => {
   going.push(req.body.user)
   res.json({
     ...going
   })
-  console.log(going)
 })
 
+//for sending going array back
 router.get("/going", (req, res, next) => {
   res.json(going)
 })
 
+//for adding user to the notGoing array
 router.post("/notgoing", (req, res, next) => {
   notGoing.push(req.body.user)
   res.json({
     ...notGoing
   })
-  // console.log(notGoing)
 })
 
+//for sending notGoing array back
 router.get("/notgoing", (req, res, next) => {
   res.json(notGoing)
 })
-
-// router.post("/", (req, res, next) => {})
-
-// router.get("/:id", (req, res, next) => {
-//   const user = users.find(person => person.id == req.params.id)
-//   res.json(user)
-// })
 
 module.exports = router
