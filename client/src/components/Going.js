@@ -8,17 +8,17 @@ export default props => {
 
   return (
     <div>
-      {/* {user.map(person => ( */}
-      <div className="person">
-        <img src={person.img} alt="headshot" />
-        <p>Name: {person.name}</p>
-        <p>Phone: {person.phone}</p>
-        <p>Email: {person.email}</p>
-        <Link to={"/"}>
-          <button>Home</button>
-        </Link>
-      </div>
-      {/* ))} */}
+      {person.map(user => (
+        <div className="person" key={"user" + user.id}>
+          <img src={user.img} alt="headshot" />
+          <p>Name: {user.name}</p>
+          <p>Phone: {user.phone}</p>
+          <p>Email: {user.email}</p>
+          <Link to={"/"}>
+            <button>Home</button>
+          </Link>
+        </div>
+      ))}
     </div>
   )
 }
