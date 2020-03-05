@@ -84,10 +84,10 @@ export function useRandom() {
   const person = useSelector(appState => appState.randomState.goingArr)
   const people = useSelector(appState => appState.randomState.notGoingArr)
   // const random = () => dispatch(getRandom())
-  // const add = user => dispatch(addGoing(user))
-  // const noGo = user => dispatch(addNotGoing(user))
-  const allGoing = () => dispatch(getGoing())
-  const notGoing = () => dispatch(getNotGoing())
+  const add = user => dispatch(addGoing(user))
+  const noGo = user => dispatch(addNotGoing(user))
+  // const allGoing = () => dispatch(getGoing())
+  // const notGoing = () => dispatch(getNotGoing())
 
   useEffect(() => {
     dispatch(getRandom())
@@ -97,8 +97,8 @@ export function useRandom() {
   return {
     user,
     person,
-    allGoing,
-    notGoing,
-    people
+    people,
+    add,
+    noGo
   }
 }
