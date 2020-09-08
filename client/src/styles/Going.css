@@ -1,28 +1,29 @@
 .goingwrapper {
-  width: 1000px;
-  margin: 50px auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  justify-content: center;
+	width: 1000px;
+	margin: 50px auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	justify-content: center;
 }
 
 .userContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  justify-content: center;
-  grid-gap: 10px 10px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	justify-content: center;
+	grid-row-gap: 10px;
+	grid-column-gap: 10px;
 }
 
 .person img {
-  border-radius: 50%;
-  justify-self: center;
+	border-radius: 50%;
+	justify-self: center;
 }
 
 .buttonDiv {
-  display: flex;
-  justify-content: space-around;
+	display: flex;
+	justify-content: space-around;
 }
 
 .buttonDiv a button {
-  font-size: 30px;
+	font-size: 30px;
 }
